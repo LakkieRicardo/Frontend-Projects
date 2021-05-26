@@ -9,7 +9,8 @@ This is a website to demonstrate what an online Minecraft server manager would l
 - [x] Server start/stop
 - [x] MOTD editor
 - [x] `server.properties` editor
-- [ ] Plugin manager
+- [x] Plugin manager
 - [x] Server login
 - [x] Mobile support
-- [ ] Dark mode support
+- [x] Dark mode support
+- [ ] React version

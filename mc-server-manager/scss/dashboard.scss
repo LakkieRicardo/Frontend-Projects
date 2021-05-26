@@ -6,13 +6,13 @@ Messy code; still has to be cleaned up and/or redone
     margin: 20px;
     padding: 15px;
     border-radius: 15px;
-    border: 1px solid black;
+    border: 1px solid var(--theme-text-clr);
 }
 
 .server-info {
     @include page-section;
     max-width: 100%;
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--theme-complement-clr-transparent);
 }
 
 .server-title h1 {
@@ -124,6 +124,7 @@ Messy code; still has to be cleaned up and/or redone
         width: 120px;
         cursor: pointer;
         text-align: center;
+        color: #222;
     }
 
     .controller--start {
@@ -161,7 +162,7 @@ Messy code; still has to be cleaned up and/or redone
     }
     grid-row-gap: 4em;
     max-width: 100%;
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--theme-complement-clr-transparent);
 }
 
 .btn-update-server-props {
@@ -171,6 +172,8 @@ Messy code; still has to be cleaned up and/or redone
     margin-top: 10px;
     cursor: pointer;
     background: white;
+    color: var(--theme-text-clr);
+    background-color: var(--theme-complement-clr);
 }
 
 .server-props {
@@ -180,6 +183,8 @@ Messy code; still has to be cleaned up and/or redone
     }
     min-height: 200px;
     font-family: 'IBM Plex Mono', monospace;
+    color: var(--theme-text-clr);
+    background-color: var(--theme-complement-clr);
 }
 
 .props-grid--server-props {
@@ -209,6 +214,10 @@ Messy code; still has to be cleaned up and/or redone
         font-weight: bold;
     }
 
+    li, li a {
+        color: var(--theme-text-clr);
+    }
+
     @media (max-width: 700px) {
         ul {
             list-style-type: none;
@@ -220,11 +229,16 @@ Messy code; still has to be cleaned up and/or redone
 .server-file-list {
     @include page-section;
     max-width: 100%;
-    background: rgba(255, 255, 255, 0.5);
-
+    background: var(--theme-complement-clr-transparent);
+    
     h3 {
         font-size: 32px;
         font-weight: bold;
+        color: var(--theme-text-clr);
+    }
+
+    li {
+        color: var(--theme-text-clr);
     }
 }
 
@@ -236,7 +250,7 @@ Messy code; still has to be cleaned up and/or redone
     }
 }
 
-.logos {
-    margin: 20px;
-    text-align: center;
+.plugins-link {
+    font-size: 32px;
+    font-weight: bold;
 }

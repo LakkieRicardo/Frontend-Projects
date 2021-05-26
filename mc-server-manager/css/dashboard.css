@@ -5,9 +5,9 @@ Messy code; still has to be cleaned up and/or redone
   margin: 20px;
   padding: 15px;
   border-radius: 15px;
-  border: 1px solid black;
+  border: 1px solid var(--theme-text-clr);
   max-width: 100%;
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--theme-complement-clr-transparent);
 }
 
 .server-title h1 {
@@ -120,6 +120,7 @@ Messy code; still has to be cleaned up and/or redone
   width: 120px;
   cursor: pointer;
   text-align: center;
+  color: #222;
 }
 .info-grid--status-control .controller--start {
   background-color: #90ee90;
@@ -144,12 +145,12 @@ Messy code; still has to be cleaned up and/or redone
   margin: 20px;
   padding: 15px;
   border-radius: 15px;
-  border: 1px solid black;
+  border: 1px solid var(--theme-text-clr);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 4em;
   max-width: 100%;
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--theme-complement-clr-transparent);
 }
 @media (max-width: 700px) {
   .server-props-grid {
@@ -164,12 +165,16 @@ Messy code; still has to be cleaned up and/or redone
   margin-top: 10px;
   cursor: pointer;
   background: white;
+  color: var(--theme-text-clr);
+  background-color: var(--theme-complement-clr);
 }
 
 .server-props {
   width: 75%;
   min-height: 200px;
   font-family: "IBM Plex Mono", monospace;
+  color: var(--theme-text-clr);
+  background-color: var(--theme-complement-clr);
 }
 @media (max-width: 700px) {
   .server-props {
@@ -206,6 +211,9 @@ Messy code; still has to be cleaned up and/or redone
   font-size: 32px;
   font-weight: bold;
 }
+.props-grid--logs li, .props-grid--logs li a {
+  color: var(--theme-text-clr);
+}
 @media (max-width: 700px) {
   .props-grid--logs ul {
     list-style-type: none;
@@ -217,13 +225,17 @@ Messy code; still has to be cleaned up and/or redone
   margin: 20px;
   padding: 15px;
   border-radius: 15px;
-  border: 1px solid black;
+  border: 1px solid var(--theme-text-clr);
   max-width: 100%;
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--theme-complement-clr-transparent);
 }
 .server-file-list h3 {
   font-size: 32px;
   font-weight: bold;
+  color: var(--theme-text-clr);
+}
+.server-file-list li {
+  color: var(--theme-text-clr);
 }
 
 .server-file-entry {
@@ -233,9 +245,9 @@ Messy code; still has to be cleaned up and/or redone
   color: black;
 }
 
-.logos {
-  margin: 20px;
-  text-align: center;
+.plugins-link {
+  font-size: 32px;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=dashboard.css.map */

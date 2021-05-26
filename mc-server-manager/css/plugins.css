@@ -1,0 +1,68 @@
+.content-container {
+  padding: 48px;
+  width: 50%;
+}
+@media (max-width: 700px) {
+  .content-container {
+    width: 90%;
+  }
+}
+
+.server-title {
+  font-size: 96px;
+}
+@media (max-width: 700px) {
+  .server-title {
+    font-size: 64px;
+  }
+}
+
+.active-user {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.active-user-name {
+  font-weight: normal;
+}
+
+.plugin-list-label {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.plugin-entry {
+  background-color: var(--theme-complement-clr-transparent);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid var(--theme-text-clr);
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.plugin-toggle {
+  position: relative;
+}
+.plugin-toggle:after {
+  content: "+";
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.plugin-toggle-active:after {
+  content: "-";
+}
+
+.plugin-content {
+  display: none;
+}
+
+.dashboard-link {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=plugins.css.map */

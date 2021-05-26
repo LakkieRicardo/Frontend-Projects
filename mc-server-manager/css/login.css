@@ -12,13 +12,15 @@
 .login-container input {
   padding: 5px;
   font-size: 2em;
+  color: var(--theme-complement-clr);
+  max-width: 80%;
 }
 .login-container input[type=submit] {
   padding: 10px;
   background-color: black;
   color: white;
   border: none;
-  box-shadow: 0 0 20px 5px #b3b3b3;
+  box-shadow: 0 0 20px 5px #292929;
   cursor: pointer;
 }
 
