@@ -1,0 +1,101 @@
+* {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+@keyframes bg-anim {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    /* Size of individual background cube */
+    background-position: 50px 50px;
+  }
+}
+body {
+  background: url("../img/background.png") repeat 0 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  animation: bg-anim 1s linear infinite;
+  z-index: -1;
+}
+
+#btn-debug-options {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  width: 64px;
+  height: 64px;
+  background: repeating-linear-gradient(45deg, #8f2424, #8f2424 10px, #af3f3f 10px, #af3f3f 20px);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 20px 5px #b3b3b3;
+  align-items: center;
+  border: none;
+  outline: none;
+}
+#btn-debug-options i {
+  background: none;
+  border: none;
+  color: #3b1111;
+}
+
+.debug-options {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 240px;
+  min-height: 50px;
+  background-color: white;
+  border-radius: 15px;
+  z-index: 10;
+  padding: 30px;
+  display: none;
+}
+.debug-options .section-title {
+  font-size: 48px;
+}
+.debug-options span, .debug-options a {
+  font-size: 24px;
+  text-decoration-line: none;
+}
+.debug-options .exit-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.debug-options-background {
+  position: fixed;
+  background: black;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  display: none;
+}
+
+.lakkienet-logo {
+  width: 128px;
+  height: 128px;
+}
+
+.animated-lakkienet-logo {
+  stroke-dasharray: 64px;
+  animation: logo-stroke-offset 15s linear 0s infinite;
+}
+
+@keyframes logo-stroke-offset {
+  0% {
+    stroke-dashoffset: 0px;
+  }
+  100% {
+    stroke-dashoffset: calc(64px * 6);
+  }
+}
+
+/*# sourceMappingURL=universal.css.map */

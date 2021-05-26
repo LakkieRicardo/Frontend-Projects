@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Minecraft Server Manager</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&family=IBM+Plex+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/universal.css" />
+
+    <script src="https://kit.fontawesome.com/fda8e317f6.js" crossorigin="anonymous"></script>
+    <script src="../js/universal.js"></script>
+    <script src="../js/dashboard.js"></script>
+</head>
+<body>
+
+    <div class="logos">
+        <img src="../img/minecraft.png" width="128" height="128" alt="Minecraft crafting block" />
+        <svg viewBox="0 0 500 500" width="96" height="96" xmlns="http://www.w3.org/2000/svg" class="lakkienet-logo">
+            <text transform="matrix(5.836938, 0, 0, 5.278872, -74.006126, -36.606636)" style="fill: rgb(0, 0, 0); font-family: 'IBM Plex Sans'; font-size: 60px; white-space: pre;" x="39.439" y="53.163">L</text>
+            <path class="animated-lakkienet-logo" style="fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); fill-opacity: 0; stroke-width: 13px;" d="M 246.49 103.11 C 330.843 103.11 383.143 200.221 340.638 277.912 C 298.125 355.603 192.685 355.603 150.843 277.912 C 127.122 233.864 133.071 178.412 165.543 140.915" transform="matrix(0.999311, -0.037119, 0.037119, 0.999311, -7.983427, 9.285276)"/>
+            <text style="fill: rgb(0, 0, 0); font-family: 'IBM Plex Sans'; font-size: 28px; white-space: pre;" x="0.463" y="105.564" transform="matrix(3.874594, 0, 0, 4.26572, -1.749326, 16.818708)">Lakkie.net</text>
+        </svg>
+    </div>
+
+    <div class="server-info">
+        <div class="server-title">
+            <h1>Sample Server Title</h1>
+        </div>
+        <div class="server-info-grid">
+            <div class="info-grid--motd">
+                <span>Sample Server MOTD</span><br />
+                <div id="motd-preview">W.I.P.</div>
+            </div>
+            <div class="info-grid--active-user">
+                <span class="active-user-label">Active user: </span><span class="active-user-name">Lakkie</span>
+            </div>
+            <div class="info-grid--players">
+                <span>Player list</span>
+                <div id="info-grid--players-preview">
+                    <ul>
+                        <li class="player-entry">SamplePlayer1</li>
+                        <li class="player-entry">SamplePlayer2</li>
+                        <li class="player-entry">SamplePlayer3</li>
+                        <a href="#" class="player-entry-ellipse">...</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-grid--status-control">
+                <h3>Current status: <strong style="color: grey;">N/A</strong></h3>
+                <button class="server-status-control controller--start">Start</button>
+                <button class="server-status-control controller--reload">Reload</button>
+                <button class="server-status-control controller--stop">Stop</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="server-props-grid">
+        <div class="props-grid--server-props">
+            <h3>Edit <code>server.properties</code></h3>
+            <textarea class="server-props" cols="60" rows="20"></textarea><br />
+            <button class="btn-update-server-props">Update changes</button>
+        </div>
+        <div class="props-grid--logs">
+            <h3>Server Logs</h3>
+            <ul>
+                <li class="server-file-entry"><a href="#">2021-05-25-1.log.gz</a></li>
+                <li class="server-file-entry"><a href="#">2021-05-25-2.log.gz</a></li>
+                <li class="server-file-entry"><a href="#">2021-05-25-3.log.gz</a></li>
+                <li class="server-file-entry"><a href="#">2021-05-25-4.log.gz</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="server-file-list">
+        <h3>View Server Files</h3>
+        <ul>
+            <li class="server-file-entry"><i class="far fa-folder"></i> apache-maven-3.6.0</li>
+            <li class="server-file-entry"><i class="far fa-folder"></i> BuildData</li>
+            <li class="server-file-entry"><i class="far fa-folder"></i> Bukkit</li>
+            <li class="server-file-entry"><i class="far fa-folder"></i> CraftBukkit</li>
+            <li class="server-file-entry"><i class="far fa-folder"></i> logs</li>
+            <li class="server-file-entry"><i class="far fa-folder"></i> plugins</li>
+            <li class="server-file-entry"><i class="far fa-folder"></i> PortableGit-2.30.0-64-bit</li>
+            <li class="server-file-entry"><i class="far fa-folder"></i> Spigot</li>
+            <li class="server-file-entry"><i class="far fa-folder"></i> work</li>
+            <li class="server-file-entry"><i class="far fa-folder"></i> world</li>
+            <li class="server-file-entry"><i class="far fa-folder"></i> world_nether</li>
+            <li class="server-file-entry"><i class="far fa-folder"></i> world_the_end</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> banned-ips.json</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> banned-players.json</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> BuildTools.jar</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> BuildTools.log.txt</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> bukkit.yml</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> commands.yml</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> eula.txt</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> help.yml</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> ops.json</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> permissions.yml</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> server.properties</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> spigot.yml</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> spigot-1.16.5.jar</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> usercache.json</li>
+            <li class="server-file-entry"><i class="far fa-file"></i> whitelist.json</li>
+        </ul>
+    </div>
+
+    <button id="btn-debug-options"><i class="fas fa-toolbox fa-2x"></i></button>
+
+    <div id="debug-options-container">
+        <div class="debug-options">
+            <p class="section-title">Pages</p>
+            <span><a href="/login/index.html">Login</a> &middot; <a href="/dashboard/index.html">Dashboard</a> &middot; <a href="/plugins/index.html">Server Plugins</a></span>
+            <i class="far fa-times-circle fa-2x exit-button"></i>
+        </div>
+        <div class="debug-options-background"></div>
+
+    </div>
+
+    
+</body>
+</html>

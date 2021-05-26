@@ -1,0 +1,11 @@
+{
+  "name": "frontend-projects",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "frontend": "npx http-server ./mc-server-manager"
+  },
+  "author": "Diego Ricardo",
+  "license": "ISC"
+}

@@ -1,0 +1,165 @@
+.server-info {
+    margin: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid black;
+    max-width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.server-title h1 {
+    font-size: 96px;
+}
+
+.server-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 100%;
+    grid-row-gap: 4em;
+}
+
+.server-info-grid > div {
+    padding: 15px;
+}
+
+.info-grid--motd {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+
+    span {
+        font-size: 32px;
+        font-weight: bold;
+    }
+}
+
+.info-grid--active-user {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    font-size: 32px;
+
+    .active-user-label {
+        font-weight: bold;
+    }
+
+    .active-user-name {
+        font-family: 'IBM Plex Mono', monospace;
+    }
+}
+
+.info-grid--players {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+
+    .player-entry {
+        font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .player-entry-ellipse {
+        color: black;
+    }
+}
+
+.info-grid--status-control {
+    
+    .server-status-control {
+        padding: 15px;
+        font-weight: bold;
+        font-size: 24px;
+        width: 120px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .controller--start {
+        background-color: #90ee90;
+
+        &:hover {
+            background-color: #75bd75;
+        }
+    }
+
+    .controller--reload {
+        background-color: #ffff00;
+
+        &:hover {
+            background-color: #afaf00;
+        }
+    }
+
+    .controller--stop {
+        background-color: #ff0000;
+
+        &:hover {
+            background-color: #b80000;
+        }
+    }
+
+}
+
+.server-props-grid {
+    margin: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 4em;
+    max-width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.btn-update-server-props {
+    padding: 15px;
+    font-size: 24px;
+    min-width: 120px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.props-grid--server-props {
+    grid-column: 1 / span 1;
+    h3 {
+        font-size: 32px;
+        font-weight: bold;
+    }
+}
+
+.props-grid--logs {
+    grid-column: 2 / span 1;
+
+    h3 {
+        font-size: 32px;
+        font-weight: bold;
+    }
+}
+
+.server-file-list {
+    margin: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid black;
+    max-width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+
+    h3 {
+        font-size: 32px;
+        font-weight: bold;
+    }
+}
+
+.server-file-entry {
+    color: black;
+
+    a {
+        color: black;
+    }
+}
+
+.logos {
+    margin: 20px;
+    text-align: center;
+}
+
+/*
+To-do: stack components vertically if screen size < 700px
+*/

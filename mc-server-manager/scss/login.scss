@@ -1,0 +1,30 @@
+.login-container {
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    text-align: center;
+
+    * {
+        margin-top: 20px;
+    }
+
+    input {
+        padding: 5px;
+        font-size: 2em;
+    }
+
+    input[type=submit] {
+        padding: 10px;
+        background-color: black;
+        color: white;
+        border: none;
+        box-shadow: 0 0 20px 5px rgb(179, 179, 179);
+        cursor: pointer;
+    }
+}
+
+header {
+    font-size: 4em;
+}
