@@ -3,7 +3,7 @@
 ![Minecraft crafting block](https://uploads.lakkie.net/minecraft.png)
 
 ## About
-This is a website to demonstrate what an online Minecraft server manager would look like. Currently, it includes a login page and a dashboard page. In the future there will be a plugins page, as well.
+This is a website to demonstrate what an online Minecraft server manager would look like. Currently, it includes a login page, dashboard page, and plugins page.
 
 ## Planned features
 - [x] Server start/stop
