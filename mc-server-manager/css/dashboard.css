@@ -1,3 +1,6 @@
+/* 
+Messy code; still has to be cleaned up and/or redone
+*/
 .server-info {
   margin: 20px;
   padding: 15px;
@@ -10,12 +13,22 @@
 .server-title h1 {
   font-size: 96px;
 }
+@media (max-width: 700px) {
+  .server-title h1 {
+    font-size: 64px;
+  }
+}
 
 .server-info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 100%;
   grid-row-gap: 4em;
+}
+@media (max-width: 700px) {
+  .server-info-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .server-info-grid > div {
@@ -26,6 +39,11 @@
   grid-column: 1/span 1;
   grid-row: 1/span 1;
 }
+@media (max-width: 700px) {
+  .info-grid--motd {
+    text-align: center;
+  }
+}
 .info-grid--motd span {
   font-size: 32px;
   font-weight: bold;
@@ -35,6 +53,13 @@
   grid-column: 2/span 1;
   grid-row: 1/span 1;
   font-size: 32px;
+}
+@media (max-width: 700px) {
+  .info-grid--active-user {
+    grid-column: 1/span 1;
+    grid-row: 2/span 1;
+    text-align: center;
+  }
 }
 .info-grid--active-user .active-user-label {
   font-weight: bold;
@@ -47,13 +72,47 @@
   grid-column: 1/span 1;
   grid-row: 2/span 1;
 }
+@media (max-width: 700px) {
+  .info-grid--players {
+    grid-column: 1/span 1;
+    grid-row: 3/span 1;
+    text-align: center;
+  }
+}
+.info-grid--players span {
+  font-size: 32px;
+  font-weight: bold;
+}
 .info-grid--players .player-entry {
   font-family: "IBM Plex Mono", monospace;
 }
 .info-grid--players .player-entry-ellipse {
   color: black;
 }
+@media (max-width: 700px) {
+  .info-grid--players ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+}
 
+.info-grid--status-control {
+  grid-column: 2/span 1;
+  grid-row: 2/span 1;
+}
+@media (max-width: 700px) {
+  .info-grid--status-control {
+    grid-column: 1/span 1;
+    grid-row: 4/span 1;
+    text-align: center;
+  }
+}
+.info-grid--status-control p {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
 .info-grid--status-control .server-status-control {
   padding: 15px;
   font-weight: bold;
@@ -92,6 +151,11 @@
   max-width: 100%;
   background: rgba(255, 255, 255, 0.5);
 }
+@media (max-width: 700px) {
+  .server-props-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 .btn-update-server-props {
   padding: 15px;
@@ -99,10 +163,28 @@
   min-width: 120px;
   margin-top: 10px;
   cursor: pointer;
+  background: white;
+}
+
+.server-props {
+  width: 75%;
+  min-height: 200px;
+  font-family: "IBM Plex Mono", monospace;
+}
+@media (max-width: 700px) {
+  .server-props {
+    width: 90%;
+  }
 }
 
 .props-grid--server-props {
   grid-column: 1/span 1;
+  grid-row: 1/span 1;
+}
+@media (max-width: 700px) {
+  .props-grid--server-props {
+    text-align: center;
+  }
 }
 .props-grid--server-props h3 {
   font-size: 32px;
@@ -111,10 +193,24 @@
 
 .props-grid--logs {
   grid-column: 2/span 1;
+  grid-row: 1/span 1;
+}
+@media (max-width: 700px) {
+  .props-grid--logs {
+    grid-column: 1/span 1;
+    grid-row: 2/span 1;
+    text-align: center;
+  }
 }
 .props-grid--logs h3 {
   font-size: 32px;
   font-weight: bold;
+}
+@media (max-width: 700px) {
+  .props-grid--logs ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
 }
 
 .server-file-list {
@@ -141,9 +237,5 @@
   margin: 20px;
   text-align: center;
 }
-
-/*
-To-do: stack components vertically if screen size < 700px
-*/
 
 /*# sourceMappingURL=dashboard.css.map */

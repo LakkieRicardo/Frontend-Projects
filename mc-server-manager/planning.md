@@ -11,5 +11,5 @@ This is a website to demonstrate what an online Minecraft server manager would l
 - [x] `server.properties` editor
 - [ ] Plugin manager
 - [x] Server login
-- [ ] Mobile support
+- [x] Mobile support
 - [ ] Dark mode support

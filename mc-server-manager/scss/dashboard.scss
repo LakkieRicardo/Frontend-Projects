@@ -1,19 +1,33 @@
-.server-info {
+/* 
+Messy code; still has to be cleaned up and/or redone
+*/
+
+@mixin page-section {
     margin: 20px;
     padding: 15px;
     border-radius: 15px;
     border: 1px solid black;
+}
+
+.server-info {
+    @include page-section;
     max-width: 100%;
     background: rgba(255, 255, 255, 0.5);
 }
 
 .server-title h1 {
     font-size: 96px;
+    @media (max-width: 700px) {
+        font-size: 64px;
+    }
 }
 
 .server-info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
     max-width: 100%;
     grid-row-gap: 4em;
 }
@@ -25,6 +39,9 @@
 .info-grid--motd {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
+    @media (max-width: 700px) {
+        text-align: center;
+    }
 
     span {
         font-size: 32px;
@@ -35,6 +52,11 @@
 .info-grid--active-user {
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
+    @media (max-width: 700px) {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+        text-align: center;
+    }
     font-size: 32px;
 
     .active-user-label {
@@ -49,6 +71,16 @@
 .info-grid--players {
     grid-column: 1 / span 1;
     grid-row: 2 / span 1;
+    @media (max-width: 700px) {
+        grid-column: 1 / span 1;
+        grid-row: 3 / span 1;
+        text-align: center;
+    }
+
+    span {
+        font-size: 32px;
+        font-weight: bold;
+    }
 
     .player-entry {
         font-family: 'IBM Plex Mono', monospace;
@@ -57,10 +89,34 @@
     .player-entry-ellipse {
         color: black;
     }
+
+    @media (max-width: 700px) {
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    }
 }
 
 .info-grid--status-control {
     
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+    @media (max-width: 700px) {
+        grid-column: 1 / span 1;
+        grid-row: 4 / span 1;
+        text-align: center;
+    }
+
+    p {
+        font: {
+            size: 32px;
+            weight: bold;
+        }
+        margin-bottom: 16px;
+        margin-top: 0;
+    }
+
     .server-status-control {
         padding: 15px;
         font-weight: bold;
@@ -97,12 +153,12 @@
 }
 
 .server-props-grid {
-    margin: 20px;
-    padding: 15px;
-    border-radius: 15px;
-    border: 1px solid black;
+    @include page-section;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
     grid-row-gap: 4em;
     max-width: 100%;
     background: rgba(255, 255, 255, 0.5);
@@ -114,10 +170,25 @@
     min-width: 120px;
     margin-top: 10px;
     cursor: pointer;
+    background: white;
+}
+
+.server-props {
+    width: 75%;
+    @media (max-width: 700px) {
+        width: 90%;
+    }
+    min-height: 200px;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 .props-grid--server-props {
     grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    @media (max-width: 700px) {
+        text-align: center;
+    }
+
     h3 {
         font-size: 32px;
         font-weight: bold;
@@ -126,18 +197,28 @@
 
 .props-grid--logs {
     grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    @media (max-width: 700px) {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+        text-align: center;
+    }
 
     h3 {
         font-size: 32px;
         font-weight: bold;
     }
+
+    @media (max-width: 700px) {
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    }
 }
 
 .server-file-list {
-    margin: 20px;
-    padding: 15px;
-    border-radius: 15px;
-    border: 1px solid black;
+    @include page-section;
     max-width: 100%;
     background: rgba(255, 255, 255, 0.5);
 
@@ -159,7 +240,3 @@
     margin: 20px;
     text-align: center;
 }
-
-/*
-To-do: stack components vertically if screen size < 700px
-*/
