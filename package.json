@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "frontend": "npx http-server ./mc-server-manager"
+    "mcm": "npx http-server ./mc-server-manager"
   },
   "author": "Diego Ricardo",
   "license": "ISC"

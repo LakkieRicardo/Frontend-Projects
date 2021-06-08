@@ -29,10 +29,16 @@
       <p>Towers of Hanoi is a simple puzzle in which there are 3 rods with any amount of disks. The disks must be stacked like a pyramid, such that each disk is stacked above another one which is larger it. The goal is to move the entire pyramid by moving each piece one by one to another rod.<br />
       To interact, click once on the rod you want to take from, and click once again near the rod you want to place the disk you picked up on.</p>
       Customize number of disks: <input id="disk-counter" type="range" min="1" max="10"><br />
-      Or, input a custom amount: <input id="disk-counter-text" type="number">
+      Or, input a custom amount: <input id="disk-counter-text" type="number"><br />
+      <hr />
+      <h3>Solver</h3>
+      <div class="solver-form-info">
+        <p>This is an algorithm which will automatically solve the Towers of Hanoi.</p>
+        <p>This implementation is iterative, and always uses the minimum amount of moves (2^n-1).</p>
+      </div>
+      <span>Animate(will be slower)? </span><input type="checkbox" id="animate-checkbox"> <button class="solver">Solve</button>
+      
     </footer>
-
-    <button class="solver">Solve</button>
 
     <span class="solver-note" style="display: none;">Solver is active...</span>
 

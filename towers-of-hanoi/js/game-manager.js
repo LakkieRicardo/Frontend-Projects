@@ -2,10 +2,18 @@ let lastMouseX = -1;
 
 export function GetLastMouseX() { return lastMouseX; };
 
+/**
+ * @param {Number} value 
+ */
 export function SetLastMouseX(value) { lastMouseX = value; };
 
 export function GetScreenWidth() { return parseInt($("body").css("width")); };
 
+/**
+ * @param {HTMLElement} tower DOM element of the tower
+ * @param {Number} mousePosX mouse position(0 = left boundary of screen, screen width = right boundary)
+ * @returns {void}
+ */
 export function SelectPieceFromTower(tower, mousePosX = -1) {
   if ($(".selected-item").length !== 0 || !tower.classList.contains("tower")) return;
   if (mousePosX === -1) mousePosX = lastMouseX;
@@ -33,6 +41,10 @@ export function ReturnSelectedPiece() {
   }
 };
 
+/**
+ * @param {Number} mousePosX 
+ * @returns {void}
+ */
 export function UpdateSelectedPiecePosition(mousePosX = -1) {
   if ($(".selected-item").length === 0) return;
   if (mousePosX === -1) mousePosX = lastMouseX;
@@ -43,6 +55,9 @@ export function ClearDisks() {
   $(".tower .item").remove();
 };
 
+/**
+ * @param {Number} count
+ */
 export function InsertDisks(count) {
   let minWidth = 10;
   let maxWidth = 90;
@@ -63,23 +78,46 @@ export function FindDiskCount() {
   return $("#tower-1").children().length + $("#tower-2").children().length + $("#tower-3").children().length - 3;
 };
 
+/**
+ * 
+ * @param {Number} towerFrom ID of the origin tower
+ * @param {Number} towerTo ID of the target tower
+ * @param {Number} delay Additional delay in milliseconds
+ * @returns {Promise<void>}
+ */
 export function AnimateDiskMovement(towerFrom, towerTo, delay = 500) {
   if (towerFrom > 2 || towerFrom < 0 || towerTo > 2 || towerTo < 0) throw new Error("Tower number out of bounds");
-  return new Promise((res, rej) => {
-    setTimeout(() => {
+  if (delay > 1) {
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+        SetLastMouseX(GetScreenWidth() / 3 * towerFrom + 100);
+        let towerFromElem = document.querySelector("#tower-" + (towerFrom + 1));
+        SelectPieceFromTower(towerFromElem);
+        setTimeout(() => {
+          SetLastMouseX(GetScreenWidth() / 3 * towerTo + 100);
+          UpdateSelectedPiecePosition();
+          ReturnSelectedPiece();
+          res();
+        }, delay / 2);
+      }, delay / 2);
+    });
+  } else {
+    return new Promise((res, rej) => {
       SetLastMouseX(GetScreenWidth() / 3 * towerFrom + 100);
       let towerFromElem = document.querySelector("#tower-" + (towerFrom + 1));
       SelectPieceFromTower(towerFromElem);
-      setTimeout(() => {
-        SetLastMouseX(GetScreenWidth() / 3 * towerTo + 100);
-        UpdateSelectedPiecePosition();
-        ReturnSelectedPiece();
-        res();
-      }, delay / 2);
-    }, delay / 2);
-  });
+      SetLastMouseX(GetScreenWidth() / 3 * towerTo + 100);
+      UpdateSelectedPiecePosition();
+      ReturnSelectedPiece();
+      res();
+    });
+  }
 };
 
+/**
+ * Finds the size of each top disk for each tower, and if the tower is empty, returns 10,000
+ * @returns Array<Number> tower sizes left to right
+ */
 export function FindTowerSizesAtTop() {
   let tower1Width = $("#tower-1").children().length > 1 ? $("#tower-1").children().last().width() : 10000;
   let tower2Width = $("#tower-2").children().length > 1 ? $("#tower-2").children().last().width() : 10001;
@@ -87,6 +125,10 @@ export function FindTowerSizesAtTop() {
   return [tower1Width, tower2Width, tower3Width];
 };
 
+/**
+ * Finds the tower with the piece that is smallest at the top
+ * @returns ID of the tower
+ */
 export function FindSmallestTowerAtTop() {
     let towerSizes = FindTowerSizesAtTop();
     if (towerSizes[0] < towerSizes[1] && towerSizes[0] < towerSizes[2]) return 0;
@@ -95,7 +137,25 @@ export function FindSmallestTowerAtTop() {
     return -1;
 };
 
+/**
+ * @param {Number} towerNum ID of the tower
+ * @returns Number of disks in specified tower
+ */
 export function FindDisksInTower(towerNum) {
   if (towerNum < 0 || towerNum > 2) throw new Error("Tower number out of bounds");
   return $("#tower-" + (towerNum + 1)).children().length - 1;
 };
+
+/**
+ * Gets all disk sizes in the tower
+ * @param {Number} towerNum ID of the tower (0 to 2)
+ * @returns {Array<Number>} disk sizes from smallest to largest
+ */
+export function GetDiskSizesInTower(towerNum) {
+  const result = [];
+  document.querySelectorAll("#tower-" + (towerNum + 1) + " .item").forEach((elem) => {
+    result.push(elem.getBoundingClientRect().width);
+  });
+  result.sort((a, b) => a - b);
+  return result;
+}

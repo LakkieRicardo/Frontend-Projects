@@ -33,6 +33,16 @@ $("#disk-counter-text").on("change", e => {
 
 GameManager.InsertDisks(3);
 
+/**
+ * Finds the appopriate delay to animate the solver with specified diskCount
+ * @param {Number} diskCount Number of disks in scene
+ */
+function GetDelayForDiskCount(diskCount) {
+  const steps = Math.pow(2, diskCount) - 1;
+  // Force above 3000
+  return steps * 5 < 3000 ? 3000 : steps * 5;
+}
+
 // 10000 = number of additional milliseconds to complete
 // The actual solver will be much slower than this due to the delay of setTimeout and interacting with DOM
-$(".solver").on("click", () => Solver.StartSolver(3000));
+$(".solver").on("click", () => Solver.StartSolverIterative(document.querySelector("#animate-checkbox").checked ? GetDelayForDiskCount(parseInt(document.querySelector("#disk-counter-text").value)) : 0));
