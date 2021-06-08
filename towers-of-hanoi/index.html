@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Towers of Hanoi</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <div id="container">
+      <div id="tower-1" class="tower">
+        <div class="tower-peg"></div>
+      </div>
+      <div id="tower-2" class="tower">
+        <div class="tower-peg"></div>
+
+      </div>
+      <div id="tower-3" class="tower">
+        <div class="tower-peg"></div>
+
+      </div>
+    </div>
+
+    <footer>
+      <h1>Towers of Hanoi</h1>
+      <h3>Implementation Created by Diego Ricardo</h3>
+      <p>Towers of Hanoi is a simple puzzle in which there are 3 rods with any amount of disks. The disks must be stacked like a pyramid, such that each disk is stacked above another one which is larger it. The goal is to move the entire pyramid by moving each piece one by one to another rod.<br />
+      To interact, click once on the rod you want to take from, and click once again near the rod you want to place the disk you picked up on.</p>
+      Customize number of disks: <input id="disk-counter" type="range" min="1" max="10"><br />
+      Or, input a custom amount: <input id="disk-counter-text" type="number">
+    </footer>
+
+    <button class="solver">Solve</button>
+
+    <span class="solver-note" style="display: none;">Solver is active...</span>
+
+    <script src="js/index.js" type="module"></script>
+
+  </body>
+</html>

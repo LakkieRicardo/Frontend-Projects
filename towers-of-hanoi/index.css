@@ -1,0 +1,135 @@
+:root {
+  --bg-1: #2B314B;
+  --bg-2: #1F2335;
+  --highlight: #87243d;
+  --highlight-dark: #6E1E31;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-2);
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-left: 20px;
+}
+
+.tower {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column-reverse;
+  align-items: center;
+  height: 80vh;
+}
+
+.item {
+  display: block;
+  border-radius: 10px;
+  background-color: var(--bg-1);
+  margin-top: 2px;
+}
+
+.item-red {
+  width: 90%;
+}
+
+.item-black {
+  width: 60%;
+}
+
+.item-yellow {
+  width: 30%;
+}
+
+.tower-peg {
+  width: 20px;
+  position: absolute;
+  z-index: -1;
+  top: 25%;
+  bottom: 20vh;
+  background: var(--highlight);
+  border-radius: 10px 10px 0px 0px;
+}
+
+.selected-item {
+  position: fixed;
+  top: 20px;
+  transform: translate(-50%, 0) scaleX(0.3333);
+}
+
+footer {
+  position: fixed;
+  height: calc(20vh - 52px);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-1);
+  padding: 25px;
+  font-family: monospace;
+  color: var(--highlight);
+  font-size: 150%;
+  overflow-y: scroll;
+}
+
+.solver {
+  background-color: var(--bg-1);
+  color: var(--highlight);
+  min-width: 100px;
+  min-height: 50px;
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 24px;
+  border: none;
+  border-radius: 15px;
+}
+
+.solver--active {
+  cursor: no-drop;
+}
+
+.solver-note {
+  font-size: 24px;
+  color: var(--highlight);
+  position: fixed;
+  left: 15px;
+  top: 15px;
+  font-family: monospace;
+}
+
+#disk-counter-text, #disk-counter-text:focus, #disk-counter-text::-webkit-outer-spin-button, #disk-counter-text::-webkit-inner-spin-button {
+  background-color: var(--bg-1);
+  color: var(--highlight);
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  outline: none;
+  font-size: 24px;
+  font-family: monospace;
+  text-decoration: underline;
+}
+
+#disk-counter-label {
+  font-size: 24px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-1);
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: var(--highlight);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--highlight-dark);
+}
