@@ -1,0 +1,105 @@
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: #333232;
+}
+
+* {
+    font-family: monospace;
+    color: #ffffff;
+}
+
+.fv-header {
+    align-items: center;
+    text-align: center;
+    user-select: none;
+}
+
+.fv-header-subtitle {
+    margin-bottom: 5em;
+}
+
+.fv-header-search {
+    color: #a12929;
+    outline: none;
+    font-size: 24px;
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+.fv-footer--container {
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-height: 100px;
+    background-color: #333232;
+    border-top: 3px solid #292828;
+    user-select: none;
+}
+
+.fv-footer--padding {
+    min-height: 100px;
+}
+
+.fv-item--container {
+    position: relative;
+    min-height: 25px;
+    padding: 10px;
+    box-shadow: 1px 3px 5px 1px #151515;
+    margin-bottom: 30px;
+}
+
+.fv-item--container-new {
+    animation: 1.5s new-elem-anim ease-in-out;
+}
+
+@keyframes new-elem-anim {
+    0% {
+        background-color: #333232;
+    }
+    20% {
+        background-color: #5c2424;
+    }
+    40% {
+        background-color: #333232;
+    }
+    80% {
+        background-color: #5c2424;
+    }
+    100% {
+        background-color: #333232;
+    }
+}
+
+.fv-item--button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 15px;
+    font-size: 16px;
+    background-color: #a12929;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+    .fv-item--button {
+        position: inherit;
+        display: block;
+        margin: 10px;
+        width: calc(100% - 30px);
+    }
+}
+
+.fv-search-wrapper {
+    text-align: center;
+}
