@@ -58,42 +58,11 @@ function DeleteFTP(filename, authPassword) {
 function RetrievePasswordFromCookie() {
     if (!document.cookie.includes("auth"))
         return null;
-    if (document.cookie.includes(";")) {
-        const cookieVars = document.cookie.split(";");
-        cookieVars.forEach((cookieVar) => {
-            if (cookieVar.trim().startsWith("auth")) {
-                if (!cookieVar.includes("="))
-                    return null;
-                return cookieVar.split("=")[1];
-            }
-        });
-    }
-    if (document.cookie.trim().startsWith("auth")) {
-        if (!document.cookie.includes("="))
-            return null;
-        return document.cookie.split("=")[1];
-    }
-    return null;
+    return document.cookie.split("=")[1];
 }
 
 function SetAuthenticationPasswordCookie(authPassword) {
-    if (document.cookie.includes("auth")) {
-        if (document.cookie.includes(";")) {
-            let newCookieVar = "";
-            document.cookie.split(";").forEach((cookieVar) => {
-                if (cookieVar.trim().startsWith("auth")) {
-                    newCookieVar += ";auth=" + authPassword;
-                } else {
-                    newCookieVar += ";" + cookieVar;
-                }
-            });
-            document.cookie = newCookieVar.substring(1);
-        } else {
-            document.cookie = "auth=" + authPassword;
-        }
-    } else {
-        document.cookie += ";auth=" + authPassword;
-    }
+    document.cookie = "auth=" + authPassword;
 }
 
 /**
