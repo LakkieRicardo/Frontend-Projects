@@ -7,6 +7,14 @@ function GetTargetListingURL() {
 }
 
 /**
+ * Gets the website where the uploads are modified
+ * @returns {String}
+ */
+ function GetTargetModifierURL() {
+    return document.querySelector('meta[name="fv-target-website-modifier"]').content;
+}
+
+/**
  * Gets the website where the uploads are stored
  * @returns {String}
  */
@@ -14,4 +22,5 @@ function GetTargetListingURL() {
     return document.querySelector('meta[name="fv-target-website"]').content;
 }
 
-export { GetTargetListingURL, GetTargetUploadServer };
+
+export { GetTargetListingURL, GetTargetModifierURL, GetTargetUploadServer };

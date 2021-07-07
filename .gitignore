@@ -21,3 +21,5 @@ frontend-projects/.env.production.local
 frontend-projects/npm-debug.log*
 frontend-projects/yarn-debug.log*
 frontend-projects/yarn-error.log*
+
+/.metals
