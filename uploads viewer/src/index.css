@@ -82,13 +82,13 @@ body {
 }
 
 .fv-item--button {
-    position: absolute;
-    right: 10px;
-    top: 10px;
+    float: right;
+    margin-right: 10px;
     padding: 15px;
     font-size: 16px;
     background-color: #a12929;
     text-decoration: none;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 700px) {
@@ -102,4 +102,55 @@ body {
 
 .fv-search-wrapper {
     text-align: center;
+}
+
+.popup {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+}
+
+.popup--bg {
+    background: rgba(0, 0, 0, 0.2);
+    inset: 0;
+    position: absolute;
+    z-index: 11;
+}
+
+.popup--card {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #333232;
+    min-width: 50%;
+    min-height: 30%;
+    padding: 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 12;
+    box-shadow: 1px 3px 5px 1px #151515;
+}
+
+.popup--card * {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.popup--card input[type="text"], .popup--card input[type="password"] {
+    color: black;
+    padding: 5px;
+}
+
+.popup--card input[type="submit"] {
+    padding: 15px;
+    border: none;
+    background: #a12929;
+}
+
+.popup--error {
+    color: #a12929;
+    font-weight: bold;
 }
