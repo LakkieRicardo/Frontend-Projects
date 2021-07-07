@@ -55,6 +55,47 @@ function DeleteFTP(filename, authPassword) {
     });
 }
 
+function RetrievePasswordFromCookie() {
+    if (!document.cookie.includes("auth"))
+        return null;
+    if (document.cookie.includes(";")) {
+        const cookieVars = document.cookie.split(";");
+        cookieVars.forEach((cookieVar) => {
+            if (cookieVar.trim().startsWith("auth")) {
+                if (!cookieVar.includes("="))
+                    return null;
+                return cookieVar.split("=")[1];
+            }
+        });
+    }
+    if (document.cookie.trim().startsWith("auth")) {
+        if (!document.cookie.includes("="))
+            return null;
+        return document.cookie.split("=")[1];
+    }
+    return null;
+}
+
+function SetAuthenticationPasswordCookie(authPassword) {
+    if (document.cookie.includes("auth")) {
+        if (document.cookie.includes(";")) {
+            let newCookieVar = "";
+            document.cookie.split(";").forEach((cookieVar) => {
+                if (cookieVar.trim().startsWith("auth")) {
+                    newCookieVar += ";auth=" + authPassword;
+                } else {
+                    newCookieVar += ";" + cookieVar;
+                }
+            });
+            document.cookie = newCookieVar.substring(1);
+        } else {
+            document.cookie = "auth=" + authPassword;
+        }
+    } else {
+        document.cookie += ";auth=" + authPassword;
+    }
+}
+
 /**
  * Renames a file through FTP
  * @param {string} oldName 
@@ -114,7 +155,7 @@ class FileViewerItem extends React.Component {
             authenticationActive: false,
             targetAction: undefined,
             authPassword: undefined,
-            error: false
+            error: false,
         });
     }
 
@@ -123,32 +164,53 @@ class FileViewerItem extends React.Component {
             authenticationActive: this.state.authenticationActive,
             targetAction: this.state.targetAction,
             authPassword: this.state.authPassword,
-            error: true
+            error: true,
         });
     }
 
     requestRename() {
-        this.setState({
-            authenticationActive: true,
-            targetAction: "rename",
-            error: false
-        });
+        const authPswd = RetrievePasswordFromCookie();
+        if (authPswd === null) {
+            this.setState({
+                authenticationActive: true,
+                targetAction: "rename",
+                error: false,
+            });
+        } else {
+            this.setState({
+                authenticationActive: false,
+                targetAction: "rename",
+                authPassword: authPswd,
+                error: false,
+            });
+        }
     }
 
     requestDelete() {
-        this.setState({
-            authenticationActive: true,
-            targetAction: "delete",
-            error: false
-        });
+        const authPswd = RetrievePasswordFromCookie();
+        if (authPswd === null) {
+            this.setState({
+                authenticationActive: true,
+                targetAction: "delete",
+                error: false,
+            });
+        } else {
+            this.setState({
+                authenticationActive: false,
+                targetAction: "delete",
+                authPassword: authPswd,
+                error: false,
+            });
+        }
     }
 
     handleAuthenticate() {
+        SetAuthenticationPasswordCookie(this.popupFieldRef.current.value);
         this.setState({
             authenticationActive: false,
             targetAction: this.state.targetAction,
             authPassword: this.popupFieldRef.current.value,
-            error: false
+            error: false,
         });
         this.popupFieldRef.current.value = "";
     }
@@ -178,7 +240,7 @@ class FileViewerItem extends React.Component {
                     authenticationActive: true,
                     targetAction: "delete",
                     authPassword: "",
-                    error: true
+                    error: true,
                 });
             }
         })
@@ -187,7 +249,7 @@ class FileViewerItem extends React.Component {
                 authenticationActive: true,
                 targetAction: "delete",
                 authPassword: "",
-                error: true
+                error: true,
             });
         });
     }
@@ -222,7 +284,7 @@ class FileViewerItem extends React.Component {
                             <div>
                                 {this.state.error && <h3 className="popup--error">Error sending request to server</h3>}
                                 <h2>Enter authentication password</h2>
-                                <input type="password" name="password" id="password-input" onKeyUp={this.handleAuthKeyPress} ref={this.popupFieldRef} autoFocus={true} />
+                                <input type="password" name="auth" id="auth-input" onKeyUp={this.handleAuthKeyPress} ref={this.popupFieldRef} autoFocus={true} />
                                 <br />
                                 <input type="submit" value="Authenticate" onClick={this.handleAuthenticate} />
                             </div>
@@ -344,7 +406,7 @@ class FileViewerBody extends React.Component {
         }).filter(item => this.state.searchResults.includes(item));
         return (
             <>
-                <div className="fv-search-wrapper"><input ref={this.searchRef} type="text" maxLength="100" aria-label="Search function" className="fv-header-search" name="search" placeholder="Search" onInput={this.updateSearch} /></div>
+                <div className="fv-search-wrapper"><input ref={this.searchRef} type="search" maxLength="100" aria-label="Search function" className="fv-header-search" name="search" placeholder="Search" onInput={this.updateSearch} autoComplete="off" /></div>
                 <div className="fv-container">
                     {sortedFileList.map((filename, i) => {
                         return (<FileViewerItem key={i} filename={filename} isNew={this.state.newFiles.includes(filename)} onUpdate={() => this.updateFiles()} />);
