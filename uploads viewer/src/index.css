@@ -91,12 +91,22 @@ body {
     cursor: pointer;
 }
 
-@media screen and (max-width: 700px) {
+@media (max-width: 700px) {
     .fv-item--button {
         position: inherit;
+        float: inherit;
         display: block;
-        margin: 10px;
+        margin-top: 10px;
         width: calc(100% - 30px);
+    }
+
+    .fv-item--button:first-child {
+        margin-top: calc(18px + 2em);
+    }
+
+    .fv-item--container h3 {
+        position: absolute;
+        top: 0px;
     }
 }
 

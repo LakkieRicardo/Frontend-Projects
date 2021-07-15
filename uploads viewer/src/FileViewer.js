@@ -241,12 +241,10 @@ class FileViewerItem extends React.Component {
         if (this.state.authenticationActive) {
             return (
                 <div className={this.props.isNew ? "fv-item--container fv-item--container-new" : "fv-item--container"}>
-                    <span className="fv-item--button" onClick={this.requestRename}>Rename...</span>
+                    <span className="fv-item--button" onClick={this.requestRename}>Rename</span>
                     <span className="fv-item--button" onClick={this.requestDelete}>Delete</span>
                     <a rel="noreferrer" target="_blank" href={resourceLocation} className="fv-item--button">Open</a>
-                    <div className="fv-item--header">
-                        <h3>{this.props.filename}</h3>
-                    </div>
+                    <h3>{this.props.filename}</h3>
                     <div className="popup">
                         <div className="popup--bg" onClick={this.handleExit} />
                         <div className="popup--card">
@@ -267,9 +265,7 @@ class FileViewerItem extends React.Component {
                     <span className="fv-item--button" onClick={this.requestRename}>Rename</span>
                     <span className="fv-item--button" onClick={this.requestDelete}>Delete</span>
                     <a rel="noreferrer" target="_blank" href={resourceLocation} className="fv-item--button">Open</a>
-                    <div className="fv-item--header">
-                        <h3>{this.props.filename}</h3>
-                    </div>
+                    <h3>{this.props.filename}</h3>
                     <div className="popup">
                         <div className="popup--bg" onClick={this.handleExit} />
                         <div className="popup--card">
@@ -293,9 +289,7 @@ class FileViewerItem extends React.Component {
                     <span className="fv-item--button" onClick={this.requestRename}>Rename</span>
                     <span className="fv-item--button" onClick={this.requestDelete}>Delete</span>
                     <a rel="noreferrer" target="_blank" href={resourceLocation} className="fv-item--button">Open</a>
-                    <div className="fv-item--header">
-                        <h3>{this.props.filename}</h3>
-                    </div>
+                    <h3>{this.props.filename}</h3>
                 </div>
             );
         }
