@@ -4,8 +4,10 @@ header("Access-Control-Allow-Origin: *");
 
 $username;
 $password;
+$domain_name;
+$target_dir;
 
-$ftp_conn = ftp_connect("lakkie.net", 21);
+$ftp_conn = ftp_connect($domain_name, 21);
 if (!$ftp_conn) {
     http_response_code(500);
     echo json_encode(array("error_message" => "Failed to connect to FTP server"));
@@ -19,7 +21,7 @@ if (!$login_result) {
     die();
 }
 
-$query_result = ftp_nlist($ftp_conn, "/uploads.lakkie.net/public_html");
+$query_result = ftp_nlist($ftp_conn, $target_dir);
 http_response_code(200);
 echo json_encode(array("result" => json_encode($query_result)));
 
