@@ -387,8 +387,8 @@ class FileViewerFooter extends React.Component {
         return (
             <footer>
                 <div className="fv-footer--container">
-                    <h2>File Viewer for {ConfigRetriever.GetTargetUploadServer()}</h2>
-                    <h3>Page created by Diego Ricardo</h3>
+                    <h3>File Viewer for {ConfigRetriever.GetTargetUploadServer()}</h3>
+                    <h4>Page created by Diego Ricardo</h4>
                 </div>
                 <div className="fv-footer--padding" />
             </footer>
